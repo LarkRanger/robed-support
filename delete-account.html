@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion - Robed</title>
+    <style>
+        :root {
+            --bg-color: #f9fafb;
+            --container-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-color: #0f172a;
+            --border-color: #e5e7eb;
+            --focus-ring: #cbd5e1;
+            --destructive-bg: #fee2e2;
+            --destructive-text: #991b1b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --container-bg: #1e293b;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --accent-color: #f8fafc;
+                --border-color: #334155;
+                --focus-ring: #475569;
+                --destructive-bg: #7f1d1d;
+                --destructive-text: #fecaca;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .content {
+            margin-bottom: 2rem;
+        }
+
+        .steps {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        ol {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        ol li {
+            margin-bottom: 0.75rem;
+        }
+        
+        ol li strong {
+            color: var(--text-primary);
+        }
+
+        .warning-box {
+            background-color: var(--destructive-bg);
+            color: var(--destructive-text);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .warning-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 500;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .back:hover {
+            color: var(--text-primary);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <a class="back" href="index.html">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            Back
+        </a>
+        <header class="header">
+            <h1>Account Deletion</h1>
+            <p class="subtitle">Instructions to remove your data from Robed</p>
+        </header>
+
+        <section class="content">
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                We are sorry to see you go. If you would like to permanently delete your account and all associated data, you can do so directly from within the app.
+            </p>
+
+            <div class="steps">
+                <ol>
+                    <li>Open the <strong>Robed</strong> app on your device.</li>
+                    <li>Make sure you are logged into the account you wish to delete.</li>
+                    <li>Navigate to the <strong>Settings</strong> menu.</li>
+                    <li>Tap on the <strong>Delete Account</strong> option at the bottom of the screen.</li>
+                    <li>Confirm the deletion in the prompt that appears.</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <svg class="warning-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                <div>
+                    <strong>Important:</strong> This action is strictly permanent. All of your saved items, looks, and personal data will be completely and irrevocably wiped from our servers immediately upon confirmation.
+                </div>
+            </div>
+
+            <p style="margin-bottom: 0; color: var(--text-secondary); font-size: 0.95rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                <strong>Individual Data Deletion:</strong> You may also request that specific data (such as individual clothing items or generated looks) be deleted without being required to delete your entire account. To do this, you can manually delete items directly within the app, or contact us at the email below.
+            </p>
+        </section>
+
+        <footer class="contact-info">
+            <p>If you are having difficulty deleting your account or have any questions, please contact us at <a href="mailto:robed.app@gmail.com">robed.app@gmail.com</a>.</p>
+        </footer>
+    </main>
+
+</body>
+</html>

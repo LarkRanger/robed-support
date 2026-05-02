@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Robed</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #f9fafb;
+            --container-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --border-color: #e5e7eb;
+            --accent-color: #0f172a;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --container-bg: #1e293b;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --border-color: #334155;
+                --accent-color: #f8fafc;
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .back:hover { color: var(--text-primary); }
+
+        #content h1 { font-size: 1.875rem; font-weight: 700; margin-bottom: 0.5rem; }
+        #content h2 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+        #content h3 { font-size: 1.0625rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        #content p { color: var(--text-secondary); margin-bottom: 1rem; }
+        #content ul, #content ol { color: var(--text-secondary); margin: 0 0 1rem 1.5rem; }
+        #content li { margin-bottom: 0.375rem; }
+        #content strong { color: var(--text-primary); }
+        #content a { color: var(--accent-color); text-underline-offset: 3px; }
+        #content hr { border: none; border-top: 1px solid var(--border-color); margin: 1.5rem 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="index.html">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            Back
+        </a>
+        <div id="content">Loading…</div>
+    </div>
+    <script>
+        fetch('TERMS.md')
+            .then(r => r.text())
+            .then(text => { document.getElementById('content').innerHTML = marked.parse(text); })
+            .catch(() => { document.getElementById('content').textContent = 'Failed to load content.'; });
+    </script>
+</body>
+</html>
