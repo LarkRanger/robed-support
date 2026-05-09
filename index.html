@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robed — Your Wardrobe, Organized</title>
-    <meta name="description" content="Catalog your clothes, log your outfits, and discover the styles you love. Robed is the wardrobe app built for real life.">
-    <link rel="icon" type="image/png" href="icons/icon.png">
+    <title>Robed — Wardrobe Organizer & Virtual Try-On App</title>
+    <meta name="description" content="Catalog your wardrobe, log outfits, and virtually try on clothes before you buy. Robed uses AI to build outfits and generate a preview of you wearing any item. Free on iOS and Android.">
+    <link rel="canonical" href="https://larkranger.github.io/robed-support/">
+    <link rel="icon" type="image/png" href="icons/relaxed_512.png">
+    <link rel="apple-touch-icon" href="icons/relaxed_512.png">
+    <meta name="theme-color" content="#0c0a0b">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://larkranger.github.io/robed-support/">
+    <meta property="og:title" content="Robed — Wardrobe Organizer & Virtual Try-On App">
+    <meta property="og:description" content="Catalog your wardrobe, log outfits, and virtually try on clothes before you buy. AI-powered outfit builder and try-on preview. Free on iOS and Android.">
+    <meta property="og:image" content="https://larkranger.github.io/robed-support/icons/relaxed_512.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Robed — Wardrobe Organizer & Virtual Try-On App">
+    <meta name="twitter:description" content="Catalog your wardrobe, log outfits, and virtually try on clothes before you buy. AI outfit builder included. Free on iOS and Android.">
+    <meta name="twitter:image" content="https://larkranger.github.io/robed-support/icons/relaxed_512.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Robed",
+      "description": "Catalog your entire wardrobe, log your outfits, and discover which styles you love. Virtually try on clothes you don't own yet — upload any item, let AI build a complete outfit, and generate a photo of yourself wearing it.",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "LifestyleApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://larkranger.github.io/robed-support/",
+      "installUrl": [
+        "https://apps.apple.com/app/id6766953516",
+        "https://play.google.com/store/apps/details?id=com.lark.robed"
+      ],
+      "image": "https://larkranger.github.io/robed-support/icons/relaxed_512.png"
+    }
+    </script>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -302,6 +337,151 @@
             font-size: 0.9375rem;
             color: var(--text-secondary);
             line-height: 1.65;
+        }
+
+        /* ── Try-On ── */
+        .tryon {
+            padding: 6rem 2rem;
+            background: var(--bg-section);
+        }
+
+        .tryon-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .tryon-content { flex: 1; }
+
+        .tryon-ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 0.3rem 0.75rem 0.3rem 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .tryon-ai-badge img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .tryon-content h2 {
+            font-size: clamp(1.875rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .tryon-content h2 span {
+            color: var(--primary);
+        }
+
+        .tryon-content > p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 480px;
+            line-height: 1.65;
+        }
+
+        .tryon-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+        }
+
+        .tryon-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+        }
+
+        .tryon-step-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+        }
+
+        .tryon-step-text strong {
+            display: block;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.125rem;
+        }
+
+        .tryon-step-text span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .tryon-visual {
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .tryon-screenshot {
+            width: 130px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .tryon-screenshot:nth-child(1) { transform: translateY(24px); }
+        .tryon-screenshot:nth-child(2) { transform: translateY(0px); }
+        .tryon-screenshot:nth-child(3) { transform: translateY(24px); }
+
+        .tryon-screenshot:hover { transform: translateY(0) scale(1.03) !important; }
+
+        .tryon-screenshot img {
+            width: 100%;
+            display: block;
+        }
+
+        @media (max-width: 820px) {
+            .tryon { padding: 4rem 1.5rem; }
+
+            .tryon-inner {
+                flex-direction: column;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .tryon-content > p { max-width: 100%; margin-left: auto; margin-right: auto; }
+
+            .tryon-step { text-align: left; }
+
+            .tryon-screenshot { width: 100px; border-radius: 16px; }
+
+            .tryon-screenshot:nth-child(1) { transform: translateY(18px); }
+            .tryon-screenshot:nth-child(3) { transform: translateY(18px); }
         }
 
         /* ── Screenshots ── */
@@ -634,6 +814,61 @@
     </div>
 </section>
 
+<!-- Virtual Try-On -->
+<section class="tryon">
+    <div class="tryon-inner">
+        <div class="tryon-content">
+            <div class="tryon-ai-badge">
+                <img src="icons/ai_seal.png" alt="" aria-hidden="true" />
+                AI-Powered
+            </div>
+            <h2>Try on anything.<br><span>Before you buy it.</span></h2>
+            <p>Upload a photo of any item you don't own. Robed builds a complete outfit around it — and generates an AI photo of you actually wearing it.</p>
+            <div class="tryon-steps">
+                <div class="tryon-step">
+                    <div class="tryon-step-num">1</div>
+                    <div class="tryon-step-text">
+                        <strong>Upload any item</strong>
+                        <span>A screenshot, a shop photo, anything.</span>
+                    </div>
+                </div>
+                <div class="tryon-step">
+                    <div class="tryon-step-num">2</div>
+                    <div class="tryon-step-text">
+                        <strong>AI completes the look</strong>
+                        <span>Pairs it with pieces from your wardrobe or smart defaults.</span>
+                    </div>
+                </div>
+                <div class="tryon-step">
+                    <div class="tryon-step-num">3</div>
+                    <div class="tryon-step-text">
+                        <strong>See yourself wearing it</strong>
+                        <span>Generate an AI preview using your own photo.</span>
+                    </div>
+                </div>
+                <div class="tryon-step">
+                    <div class="tryon-step-num">4</div>
+                    <div class="tryon-step-text">
+                        <strong>Save it instantly</strong>
+                        <span>Add the item to your wardrobe or save the whole look.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tryon-visual">
+            <div class="tryon-screenshot">
+                <img src="screenshots/tryon_pick_item.png" alt="Selecting an item to try on" loading="lazy" />
+            </div>
+            <div class="tryon-screenshot">
+                <img src="screenshots/tryon_default_items.PNG" alt="Try-on look builder screen" loading="lazy" />
+            </div>
+            <div class="tryon-screenshot">
+                <img src="screenshots/tryon_look_preview.PNG" alt="AI try-on preview screen" loading="lazy" />
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Screenshots -->
 <section class="screenshots">
     <div class="section-header">
@@ -644,19 +879,19 @@
     <div class="screenshots-row">
         <div class="screenshot-item">
             <div class="screenshot-frame">
-                <img src="screenshots/home.PNG" alt="Robed home screen showing wardrobe stats" />
+                <img src="screenshots/home.PNG" alt="Robed home screen showing wardrobe stats" loading="lazy" />
             </div>
             <span class="screenshot-label">Stats & Insights</span>
         </div>
         <div class="screenshot-item">
             <div class="screenshot-frame">
-                <img src="screenshots/wardrobe.PNG" alt="Wardrobe screen showing cataloged clothing" />
+                <img src="screenshots/wardrobe.PNG" alt="Wardrobe screen showing cataloged clothing" loading="lazy" />
             </div>
             <span class="screenshot-label">Your Wardrobe</span>
         </div>
         <div class="screenshot-item">
             <div class="screenshot-frame">
-                <img src="screenshots/lookbook.PNG" alt="Lookbook screen showing outfit looks" />
+                <img src="screenshots/lookbook.PNG" alt="Lookbook screen showing outfit looks" loading="lazy" />
             </div>
             <span class="screenshot-label">Lookbook</span>
         </div>
