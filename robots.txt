@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://larkranger.github.io/robed-support/sitemap.xml
